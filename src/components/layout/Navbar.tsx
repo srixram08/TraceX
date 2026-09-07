@@ -15,6 +15,7 @@ interface NavbarProps {
   onLogout: () => void;
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
+  onOpenBenchmark?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -30,6 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onLogout,
   isDarkMode,
   onToggleDarkMode,
+  onOpenBenchmark,
 }) => {
   const [isLocationMenuOpen, setIsLocationMenuOpen] = useState<boolean>(false);
 
@@ -141,6 +143,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                     </>
                   )}
                 </div>
+              )}
+
+              {/* Benchmark Strategic Redesign Button */}
+              {onOpenBenchmark && (
+                <button
+                  onClick={onOpenBenchmark}
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-xs font-black text-white shadow-md shadow-purple-500/20 transition-all cursor-pointer"
+                >
+                  <span className="text-[10px] font-mono bg-white/20 px-1.5 py-0.5 rounded">34.5/40</span>
+                  <span className="hidden md:inline">vs SkyTruth</span>
+                </button>
               )}
 
               {/* Dossier Report Export Quick Action */}

@@ -4,6 +4,7 @@ import { LandingPage } from './components/landing/LandingPage';
 import { OperationsDashboard } from './components/dashboard/OperationsDashboard';
 import { InvestigationReportModal } from './components/reports/InvestigationReportModal';
 import { NewIncidentModal } from './components/incidents/NewIncidentModal';
+import { SkyTruthBenchmarkModal } from './components/benchmark/SkyTruthBenchmarkModal';
 import { LoginModal } from './components/auth/LoginModal';
 import { LoginPage } from './components/auth/LoginPage';
 import Scanner from './components/ui/Scanner';
@@ -40,6 +41,7 @@ export function App() {
   // Modals
   const [isReportOpen, setIsReportOpen] = useState<boolean>(false);
   const [isNewIncidentOpen, setIsNewIncidentOpen] = useState<boolean>(false);
+  const [isBenchmarkOpen, setIsBenchmarkOpen] = useState<boolean>(false);
 
   const handleViewChange = (view: ViewMode) => {
     setCurrentView(view);
@@ -154,6 +156,7 @@ export function App() {
             onLogout={handleLogout}
             isDarkMode={isDarkMode}
             onToggleDarkMode={toggleDarkMode}
+            onOpenBenchmark={() => setIsBenchmarkOpen(true)}
           />
         )}
 
@@ -212,6 +215,12 @@ export function App() {
         isOpen={isNewIncidentOpen}
         onClose={() => setIsNewIncidentOpen(false)}
         onAddNewIncident={handleAddNewIncident}
+      />
+
+      {/* SkyTruth Benchmark Strategic Redesign Modal */}
+      <SkyTruthBenchmarkModal
+        isOpen={isBenchmarkOpen}
+        onClose={() => setIsBenchmarkOpen(false)}
       />
 
     </div>

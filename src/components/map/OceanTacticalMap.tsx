@@ -295,6 +295,28 @@ export const OceanTacticalMap: React.FC<OceanTacticalMapProps> = ({
       });
     }
 
+    // 5. Monte Carlo Stochastic Drift Particles (500 Trajectories)
+    if (layers.driftParticles) {
+      particles.forEach((p, idx) => {
+        const particleMarker = L.circleMarker([p.lat, p.lng], {
+          radius: idx % 7 === 0 ? 3.5 : 2,
+          color: p.status === 'matched' ? '#a855f7' : '#06b6d4',
+          fillColor: p.status === 'matched' ? '#c084fc' : '#22d3ee',
+          fillOpacity: 0.75,
+          weight: 1,
+        }).addTo(layerGroup);
+
+        if (idx % 15 === 0) {
+          particleMarker.bindTooltip(`
+            <div class="p-1 font-mono text-[10px] bg-slate-900 text-white rounded">
+              <span class="text-purple-300 font-bold">Monte Carlo Particle #${p.id}</span><br/>
+              Velocity Perturbation: ${((p.probability || 0.85) * 100).toFixed(0)}%
+            </div>
+          `);
+        }
+      });
+    }
+
     return () => {
       map.removeLayer(layerGroup);
     };

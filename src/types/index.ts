@@ -98,6 +98,8 @@ export interface DriftParticle {
   ageHours: number;
   opacity: number;
   trail: [number, number][];
+  status?: 'matched' | 'unmatched';
+  probability?: number;
 }
 
 export interface EvidenceGraphNode {
