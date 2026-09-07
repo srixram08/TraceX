@@ -65,68 +65,71 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
         {/* ========================================== */}
         {/* LEFT VERTICAL SIDEBAR (MATCHING REFERENCE)  */}
         {/* ========================================== */}
-        <aside className="w-full lg:w-64 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm flex flex-col justify-between shrink-0 transition-colors duration-300">
+        {/* ========================================== */}
+        {/* LEFT VERTICAL SIDEBAR (MATCHING REFERENCE)  */}
+        {/* ========================================== */}
+        <aside className="w-full lg:w-64 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm h-fit self-start flex flex-col gap-6 shrink-0 transition-colors duration-300">
           
           <div className="space-y-6">
 
             {/* DIRECTORIES NAVIGATION */}
-            <div className="space-y-1">
-              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 px-3 uppercase tracking-wider block mb-2 font-mono">
+            <div className="space-y-1.5">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-3 uppercase tracking-wider block mb-1.5 font-mono">
                 Directories
               </span>
 
               <button
                 onClick={() => setActiveTab('map-rewind')}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs font-extrabold transition-all ${
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-sm font-extrabold transition-all ${
                   activeTab === 'map-rewind'
-                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-2xs border border-slate-200/60 dark:border-slate-700'
-                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                    ? 'bg-purple-100/90 dark:bg-purple-950/90 text-purple-900 dark:text-white shadow-xs border border-purple-200 dark:border-purple-800'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
                 }`}
               >
-                <LayoutDashboard className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+                <LayoutDashboard className="w-4.5 h-4.5 text-purple-700 dark:text-purple-300 shrink-0" />
                 <span>Dashboard</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('abductive-ledger')}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs font-extrabold transition-all ${
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-sm font-extrabold transition-all ${
                   activeTab === 'abductive-ledger'
-                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-2xs border border-slate-200/60 dark:border-slate-700'
-                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                    ? 'bg-purple-100/90 dark:bg-purple-950/90 text-purple-900 dark:text-white shadow-xs border border-purple-200 dark:border-purple-800'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
                 }`}
               >
-                <BarChart3 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <BarChart3 className="w-4.5 h-4.5 text-purple-600 dark:text-purple-400 shrink-0" />
                 <span>Stats &amp; Ledger</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('monte-carlo')}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs font-extrabold transition-all ${
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-sm font-extrabold transition-all ${
                   activeTab === 'monte-carlo'
-                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-2xs border border-slate-200/60 dark:border-slate-700'
-                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                    ? 'bg-purple-100/90 dark:bg-purple-950/90 text-purple-900 dark:text-white shadow-xs border border-purple-200 dark:border-purple-800'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
                 }`}
               >
-                <Activity className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <Activity className="w-4.5 h-4.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
                 <span>Monte Carlo</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('evidence-graph')}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs font-extrabold transition-all ${
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-sm font-extrabold transition-all ${
                   activeTab === 'evidence-graph'
-                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-2xs border border-slate-200/60 dark:border-slate-700'
-                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                    ? 'bg-purple-100/90 dark:bg-purple-950/90 text-purple-900 dark:text-white shadow-xs border border-purple-200 dark:border-purple-800'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60'
                 }`}
               >
-                <GitFork className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <GitFork className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400 shrink-0" />
                 <span>Graph View</span>
               </button>
             </div>
 
             {/* REPORTS / INCIDENT LOGS LIST */}
-            <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
-              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 px-3 uppercase tracking-wider block mb-2 font-mono">
+            <div className="space-y-1.5 pt-3.5 border-t border-slate-100 dark:border-slate-800">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-3 uppercase tracking-wider block mb-1.5 font-mono">
                 Case Files &amp; Logs
               </span>
 
@@ -148,19 +151,19 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                         setActiveIncident(matchedInc);
                       }
                     }}
-                    className={`flex items-center justify-between px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+                    className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
                       file.alert 
-                        ? 'text-rose-600 dark:text-rose-400 font-bold bg-rose-50/70 dark:bg-rose-950/70 border border-rose-200/60 dark:border-rose-800/60' 
+                        ? 'text-rose-700 dark:text-rose-300 font-extrabold bg-rose-50 dark:bg-rose-950/80 border border-rose-200 dark:border-rose-800' 
                         : isActive 
-                        ? 'text-purple-700 dark:text-purple-300 font-extrabold bg-purple-50/90 dark:bg-purple-950/80 border border-purple-200/60 dark:border-purple-800 shadow-2xs' 
-                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'text-purple-900 dark:text-purple-200 font-black bg-purple-100/90 dark:bg-purple-950/80 border border-purple-300 dark:border-purple-700 shadow-xs' 
+                        : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/50'
                     }`}
                   >
-                    <div className="flex items-center gap-2.5 truncate">
-                      <FileCode className={`w-3.5 h-3.5 ${file.alert ? 'text-rose-500 dark:text-rose-400' : isActive ? 'text-purple-600 dark:text-purple-400' : 'text-slate-400'}`} />
+                    <div className="flex items-center gap-2 truncate min-w-0">
+                      <FileCode className={`w-4 h-4 shrink-0 ${file.alert ? 'text-rose-500 dark:text-rose-400' : isActive ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500'}`} />
                       <span className="truncate">{file.name}</span>
                     </div>
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${isActive ? 'bg-purple-200/70 dark:bg-purple-900/80 text-purple-800 dark:text-purple-200' : 'text-slate-400 dark:text-slate-500'}`}>
+                    <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded shrink-0 ml-1 ${isActive ? 'bg-purple-200 dark:bg-purple-900 text-purple-900 dark:text-purple-200' : 'text-slate-500 dark:text-slate-400'}`}>
                       {file.code}
                     </span>
                   </div>
@@ -169,30 +172,30 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
 
               <button
                 onClick={onOpenNewIncident}
-                className="w-full mt-3 flex items-center gap-2 px-3.5 py-2 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-300 dark:hover:border-purple-700 hover:bg-purple-50/40 dark:hover:bg-purple-950/40 transition-all justify-center"
+                className="w-full mt-2.5 flex items-center gap-2 px-3.5 py-2.5 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-400 dark:hover:border-purple-600 hover:bg-purple-50/50 dark:hover:bg-purple-950/50 transition-all justify-center"
               >
-                <Plus className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                <Plus className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                 <span>Create New Case</span>
               </button>
             </div>
 
-          </div>
+            {/* User Profile & Help Directly Under Create New Case */}
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <button className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center font-bold text-sm">
+                <HelpCircle className="w-5 h-5" />
+              </button>
 
-          {/* Bottom Help & User Profile */}
-          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <button className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center font-bold text-xs">
-              <HelpCircle className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-950 border border-purple-200 dark:border-purple-800 flex items-center justify-center text-purple-700 dark:text-purple-300 font-extrabold text-xs">
-                <User className="w-4 h-4" />
-              </div>
-              <div className="text-[11px] font-mono leading-tight">
-                <span className="font-bold text-slate-800 dark:text-slate-200 block">Investigator</span>
-                <span className="text-slate-400 dark:text-slate-500 text-[9px] uppercase block">NTRO Node</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-full bg-purple-100 dark:bg-purple-950 border border-purple-200 dark:border-purple-800 flex items-center justify-center text-purple-700 dark:text-purple-300 font-black text-sm">
+                  <User className="w-4 h-4" />
+                </div>
+                <div className="text-xs font-mono leading-tight">
+                  <span className="font-extrabold text-slate-900 dark:text-slate-100 block text-xs">Investigator</span>
+                  <span className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase block">NTRO Node</span>
+                </div>
               </div>
             </div>
+
           </div>
 
         </aside>
@@ -202,6 +205,42 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
         {/* ========================================== */}
         <main className="flex-1 space-y-6">
           
+          {/* TACTICAL HUD TELEMETRY RIBBON */}
+          <div className="bg-white/95 dark:bg-slate-900/90 backdrop-blur-xl p-3.5 sm:p-4 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-md flex flex-wrap items-center justify-between gap-3 font-sans text-xs sm:text-sm transition-colors duration-300">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-purple-100 dark:bg-purple-950/80 border border-purple-200 dark:border-purple-800 text-purple-950 dark:text-purple-200 font-mono font-extrabold text-xs sm:text-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>COMMAND CENTER • ACTIVE EEZ NODE</span>
+              </div>
+
+              <div className="hidden md:flex items-center gap-2 text-slate-700 dark:text-slate-300 font-mono font-bold text-xs sm:text-sm">
+                <Clock className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <span>06:30 UTC</span>
+                <span>•</span>
+                <MapPin className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <span>{incident.coordinates.lat.toFixed(2)}°N, {incident.coordinates.lng.toFixed(2)}°E</span>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5">
+              <button
+                onClick={() => setActiveTab('monte-carlo')}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 border border-indigo-200 dark:border-indigo-800 text-indigo-950 dark:text-indigo-200 font-mono font-bold text-xs sm:text-sm transition-all cursor-pointer"
+              >
+                <Activity className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <span>500 Physics Runs</span>
+              </button>
+
+              <button
+                onClick={onOpenReport}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/60 dark:hover:bg-purple-900/80 border border-purple-200 dark:border-purple-800 text-purple-950 dark:text-purple-200 font-mono font-bold text-xs sm:text-sm transition-all cursor-pointer"
+              >
+                <ShieldCheck className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <span>Cryptographic Dossier</span>
+              </button>
+            </div>
+          </div>
+
           {/* TOP GRID: MAIN CHART CARD + 4 STACKED KPI CARDS */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
@@ -218,13 +257,13 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                   <div className="relative">
                     <button
                       onClick={() => setIsLocationOpen(!isLocationOpen)}
-                      className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/60 dark:hover:bg-purple-900/80 text-purple-800 dark:text-purple-200 border border-purple-200/90 dark:border-purple-800 font-medium text-xs transition-all shadow-2xs cursor-pointer group select-none"
+                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/60 dark:hover:bg-purple-900/80 text-purple-900 dark:text-purple-200 border border-purple-200/90 dark:border-purple-800 font-black text-sm sm:text-base transition-all shadow-xs cursor-pointer group select-none"
                       title="Switch Location / Incident"
                     >
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="font-extrabold font-mono text-purple-900 dark:text-purple-200">{incident.caseNumber}</span>
-                      <span className="text-slate-600 dark:text-slate-400 font-sans text-xs">({incident.region.split(' (')[0]})</span>
-                      <ChevronDown className={`w-3.5 h-3.5 text-purple-600 dark:text-purple-400 transition-transform duration-200 ${isLocationOpen ? 'rotate-180' : ''}`} />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="font-black font-mono text-purple-900 dark:text-purple-200">{incident.caseNumber}</span>
+                      <span className="text-slate-600 dark:text-slate-400 font-sans text-xs sm:text-sm font-bold">({incident.region.split(' (')[0]})</span>
+                      <ChevronDown className={`w-4 h-4 text-purple-600 dark:text-purple-400 transition-transform duration-200 ${isLocationOpen ? 'rotate-180' : ''}`} />
                     </button>
 
                     {/* Dropdown Popover */}
@@ -232,9 +271,9 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                       <>
                         <div className="fixed inset-0 z-30" onClick={() => setIsLocationOpen(false)} />
                         <div className="absolute left-0 mt-2 w-80 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xl z-40 p-2 space-y-1 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
-                          <div className="px-3 py-1.5 text-[11px] font-mono font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider flex items-center justify-between border-b border-slate-100 dark:border-slate-800 mb-1">
+                          <div className="px-3 py-1.5 text-xs font-mono font-black text-slate-400 dark:text-slate-500 uppercase tracking-wider flex items-center justify-between border-b border-slate-100 dark:border-slate-800 mb-1">
                             <span>Select Target Location</span>
-                            <span className="text-[10px] text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-2 py-0.5 rounded-full font-mono font-bold">{incidents.length} INCIDENTS</span>
+                            <span className="text-xs text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-2 py-0.5 rounded-full font-mono font-bold">{incidents.length} INCIDENTS</span>
                           </div>
                           {incidents.map((inc) => (
                             <button
@@ -243,7 +282,7 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                                 setActiveIncident(inc);
                                 setIsLocationOpen(false);
                               }}
-                              className={`w-full text-left px-3 py-2.5 rounded-xl transition-all flex items-center justify-between ${
+                              className={`w-full text-left px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-between ${
                                 inc.id === incident.id
                                   ? 'bg-purple-50/90 dark:bg-purple-950/80 text-purple-900 dark:text-purple-200 font-extrabold border border-purple-200/80 dark:border-purple-800 shadow-2xs'
                                   : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium'
@@ -252,19 +291,19 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                               <div className="flex items-center gap-2.5">
                                 <span className={`w-2.5 h-2.5 rounded-full ${inc.id === incident.id ? 'bg-emerald-500 ring-2 ring-emerald-200 dark:ring-emerald-900' : 'bg-slate-300 dark:bg-slate-700'}`} />
                                 <div>
-                                  <div className="text-xs font-mono font-bold flex items-center gap-2">
+                                  <div className="text-xs sm:text-sm font-mono font-bold flex items-center gap-2">
                                     <span className="text-purple-900 dark:text-purple-300">{inc.caseNumber}</span>
-                                    <span className="text-[10px] font-sans font-normal px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                    <span className="text-xs font-sans font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                                       {inc.region.split(' (')[0]}
                                     </span>
                                   </div>
-                                  <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                                  <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
                                     {inc.areaKm2} km² • {inc.sensor.split(' ')[0]} • Vol: {inc.estimatedVolumeM3} m³
                                   </div>
                                 </div>
                               </div>
                               {inc.id === incident.id && (
-                                <span className="text-[10px] font-mono font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950 px-2 py-0.5 rounded-full">
+                                <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950 px-2 py-0.5 rounded-full">
                                   ACTIVE
                                 </span>
                               )}
@@ -276,24 +315,24 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                   </div>
 
                   <div>
-                    <h2 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
                       Tactical Ocean Drift &amp; SAR Telemetry
                     </h2>
-                    <p className="text-xs text-slate-400 dark:text-slate-400 font-medium">Incident #{incident.caseNumber} • {incident.region}</p>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold mt-0.5">Incident #{incident.caseNumber} • {incident.region}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   {/* Time Range Pills */}
-                  <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-full text-xs font-extrabold">
+                  <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-full text-xs sm:text-sm font-extrabold">
                     {(['all', '1day', '1month', '1year'] as const).map(range => (
                       <button
                         key={range}
                         onClick={() => setTimeRange(range)}
                         className={`px-3 py-1 rounded-full transition-all ${
                           timeRange === range
-                            ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
-                            : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
+                            ? 'bg-white dark:bg-slate-700 text-purple-700 dark:text-purple-300 shadow-xs font-bold'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                         }`}
                       >
                         {range === 'all' ? 'All' : range === '1day' ? '1 Day' : range === '1month' ? '1 Month' : '1 Year'}
@@ -358,15 +397,15 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
               </div>
 
               {/* Card Footer Legend (Matching Reference Dots) */}
-              <div className="flex items-center gap-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs font-extrabold text-slate-600 dark:text-slate-300 font-mono">
+              <div className="flex items-center gap-6 pt-3.5 border-t border-slate-100 dark:border-slate-800 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 font-mono">
                 <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-600" /> Sentinel-1 SAR Mask
+                  <span className="w-3 h-3 rounded-full bg-blue-600" /> Sentinel-1 SAR Mask
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" /> AIS Track Vector
+                  <span className="w-3 h-3 rounded-full bg-amber-500" /> AIS Track Vector
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-purple-600" /> Hydrodynamic Plume
+                  <span className="w-3 h-3 rounded-full bg-purple-600" /> Hydrodynamic Plume
                 </span>
               </div>
 
@@ -378,45 +417,45 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
               {/* KPI CARD 1: Revenue / Slick Area */}
               <div className="bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm flex items-center justify-between transition-colors duration-300">
                 <div>
-                  <span className="text-xs font-bold text-slate-400 dark:text-slate-500 block uppercase font-mono tracking-wider">Estimated Slick Area</span>
-                  <span className="text-2xl font-black text-slate-900 dark:text-white font-mono mt-0.5 block">{incident.areaKm2} km²</span>
-                  <span className="text-[11px] font-bold text-rose-500 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/80 px-2 py-0.5 rounded-full border border-rose-100 dark:border-rose-800 inline-flex items-center gap-1 mt-1 font-mono">
-                    <TrendingDown className="w-3 h-3" /> 7.00% Since last observation
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block uppercase font-mono tracking-wider">Estimated Slick Area</span>
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-1 block">{incident.areaKm2} km²</span>
+                  <span className="text-xs font-bold text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/80 px-2.5 py-1 rounded-full border border-rose-200 dark:border-rose-800 inline-flex items-center gap-1.5 mt-2 font-mono">
+                    <TrendingDown className="w-4 h-4" /> 7.00% Since last observation
                   </span>
                 </div>
 
-                <button className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center">
-                  <ArrowUpRight className="w-5 h-5" />
+                <button className="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white flex items-center justify-center font-bold shrink-0">
+                  <ArrowUpRight className="w-5.5 h-5.5" />
                 </button>
               </div>
 
               {/* KPI CARD 2: Customers / Attributed Suspect */}
               <div className="bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm flex items-center justify-between transition-colors duration-300">
                 <div>
-                  <span className="text-xs font-bold text-slate-400 dark:text-slate-500 block uppercase font-mono tracking-wider">Attributed Suspect</span>
-                  <span className="text-2xl font-black text-slate-900 dark:text-white font-mono mt-0.5 block">{selectedVessel.name.split(' ')[1] || selectedVessel.name}</span>
-                  <span className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/80 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-indigo-800 inline-flex items-center gap-1 mt-1 font-mono">
-                    <ShieldCheck className="w-3 h-3" /> {selectedVessel.score.overall}% Attribution Score
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block uppercase font-mono tracking-wider">Attributed Suspect</span>
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-1 block">{selectedVessel.name.split(' ')[1] || selectedVessel.name}</span>
+                  <span className="text-xs font-bold text-indigo-800 dark:text-indigo-200 bg-indigo-50 dark:bg-indigo-950/80 px-2.5 py-1 rounded-full border border-indigo-200 dark:border-indigo-800 inline-flex items-center gap-1.5 mt-2 font-mono">
+                    <ShieldCheck className="w-4 h-4" /> {selectedVessel.score.overall}% Attribution Score
                   </span>
                 </div>
 
-                <div className="w-11 h-11 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/25">
-                  <Users className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/25 shrink-0">
+                  <Users className="w-5.5 h-5.5" />
                 </div>
               </div>
 
               {/* KPI CARD 3: Current Month / SAR Resolution */}
               <div className="bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm flex items-center justify-between transition-colors duration-300">
                 <div>
-                  <span className="text-xs font-bold text-slate-400 dark:text-slate-500 block uppercase font-mono tracking-wider">SAR Sensor Swath</span>
-                  <span className="text-2xl font-black text-slate-900 dark:text-white font-mono mt-0.5 block">{incident.sensor.split(' ')[0]}</span>
-                  <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800 inline-flex items-center gap-1 mt-1 font-mono">
-                    <TrendingUp className="w-3 h-3" /> 10m High-Res
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block uppercase font-mono tracking-wider">SAR Sensor Swath</span>
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-1 block">{incident.sensor.split(' ')[0]}</span>
+                  <span className="text-xs font-bold text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 inline-flex items-center gap-1.5 mt-2 font-mono">
+                    <TrendingUp className="w-4 h-4" /> 10m High-Res
                   </span>
                 </div>
 
                 {/* Mini Bar Chart Graphic (Matching Reference) */}
-                <div className="flex items-end gap-1 h-9">
+                <div className="flex items-end gap-1 h-9 shrink-0">
                   <div className="w-1.5 h-4 bg-blue-400 rounded-xs" />
                   <div className="w-1.5 h-6 bg-blue-500 rounded-xs" />
                   <div className="w-1.5 h-3 bg-blue-400 rounded-xs" />
@@ -429,15 +468,15 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
               {/* KPI CARD 4: New Leads / Drift Vector */}
               <div className="bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm flex items-center justify-between transition-colors duration-300">
                 <div>
-                  <span className="text-xs font-bold text-slate-400 dark:text-slate-500 block uppercase font-mono tracking-wider">Current Drift Vector</span>
-                  <span className="text-2xl font-black text-slate-900 dark:text-white font-mono mt-0.5 block">{incident.currentKnots} kn</span>
-                  <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-800 inline-flex items-center gap-1 mt-1 font-mono">
-                    <TrendingUp className="w-3 h-3" /> @ {incident.currentDirectionDeg}° Vector
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block uppercase font-mono tracking-wider">Current Drift Vector</span>
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-mono mt-1 block">{incident.currentKnots} kn</span>
+                  <span className="text-xs font-bold text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 inline-flex items-center gap-1.5 mt-2 font-mono">
+                    <TrendingUp className="w-4 h-4" /> @ {incident.currentDirectionDeg}° Vector
                   </span>
                 </div>
 
                 {/* Smooth Sparkline Curve SVG (Matching Reference) */}
-                <svg className="w-20 h-10 text-blue-600 dark:text-blue-400" viewBox="0 0 100 40">
+                <svg className="w-20 h-10 text-blue-600 dark:text-blue-400 shrink-0" viewBox="0 0 100 40">
                   <path
                     d="M 0 30 Q 25 5 50 25 T 100 10"
                     fill="none"
@@ -456,41 +495,41 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
             {/* BOTTOM LEFT CARD (Sales / Abductive Hypotheses Breakdown) */}
-            <div className="lg:col-span-7 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+            <div className="lg:col-span-7 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 sm:p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
               
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                     Abductive Hypotheses Confidence &amp; Physics
                   </h3>
-                  <p className="text-xs text-slate-400 dark:text-slate-400 font-medium">Multi-candidate posterior probability distribution</p>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold mt-0.5">Multi-candidate posterior probability distribution</p>
                 </div>
 
                 {/* Pill Filter Tabs */}
-                <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-800 p-0.5 rounded-xl text-xs font-bold">
-                  <button className="px-3 py-1 bg-blue-600 text-white rounded-lg">Day</button>
-                  <button className="px-3 py-1 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Month</button>
-                  <button className="px-3 py-1 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Year</button>
+                <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-800 p-1 rounded-xl text-xs sm:text-sm font-bold">
+                  <button className="px-3 py-1 bg-purple-600 text-white rounded-lg font-bold">Day</button>
+                  <button className="px-3 py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold">Month</button>
+                  <button className="px-3 py-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold">Year</button>
                 </div>
               </div>
 
               {/* Big Metric Display */}
-              <div className="mb-6">
-                <span className="text-xs text-slate-400 dark:text-slate-500 font-mono block">Total Cumulative Confidence</span>
-                <div className="flex items-baseline gap-3">
-                  <span className="text-3xl font-black text-slate-900 dark:text-white font-mono">$76685.41 / 89.4%</span>
-                  <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800 font-mono">
+              <div className="mb-5">
+                <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Total Cumulative Confidence</span>
+                <div className="flex items-baseline gap-3 mt-1">
+                  <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white font-mono">89.4% Posterior Match</span>
+                  <span className="text-xs sm:text-sm font-bold text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800 font-mono">
                     ↑ 7.00%
                   </span>
                 </div>
               </div>
 
               {/* Breakdown Items with Progress Bars */}
-              <div className="space-y-4 font-mono text-xs">
+              <div className="space-y-4 font-mono text-xs sm:text-sm">
                 <div>
                   <div className="flex justify-between mb-1.5">
-                    <span className="font-extrabold text-slate-900 dark:text-slate-200">$601.62 — MV Neptune Voyager (Bilge Discharge)</span>
-                    <span className="text-slate-500 dark:text-slate-400">Item #1 • 68.4%</span>
+                    <span className="font-extrabold text-slate-900 dark:text-slate-100">$601.62 — MV Neptune Voyager (Bilge Discharge)</span>
+                    <span className="text-slate-500 dark:text-slate-400 font-bold">Item #1 • 68.4%</span>
                   </div>
                   <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className="h-full bg-blue-600 rounded-full" style={{ width: '68.4%' }} />
@@ -499,8 +538,8 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
 
                 <div>
                   <div className="flex justify-between mb-1.5">
-                    <span className="font-extrabold text-slate-900 dark:text-slate-200">$294.86 — MT Pacific Trader (Tank Washing)</span>
-                    <span className="text-slate-500 dark:text-slate-400">Item #2 • 28.2%</span>
+                    <span className="font-extrabold text-slate-900 dark:text-slate-100">$294.86 — MT Pacific Trader (Tank Washing)</span>
+                    <span className="text-slate-500 dark:text-slate-400 font-bold">Item #2 • 28.2%</span>
                   </div>
                   <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className="h-full bg-amber-500 rounded-full" style={{ width: '28.2%' }} />
@@ -509,8 +548,8 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
 
                 <div>
                   <div className="flex justify-between mb-1.5">
-                    <span className="font-extrabold text-slate-900 dark:text-slate-200">$972.65 — Subsea Wellhead R-4 Pipeline</span>
-                    <span className="text-slate-500 dark:text-slate-400">Item #3 • 5.0%</span>
+                    <span className="font-extrabold text-slate-900 dark:text-slate-100">$972.65 — Subsea Wellhead R-4 Pipeline</span>
+                    <span className="text-slate-500 dark:text-slate-400 font-bold">Item #3 • 5.0%</span>
                   </div>
                   <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className="h-full bg-purple-600 rounded-full" style={{ width: '5.0%' }} />
@@ -520,15 +559,15 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
 
             </div>
 
-            {/* BOTTOM RIGHT CARD (Session by Device / Evidence Doughnut Chart) */}
-            <div className="lg:col-span-5 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
+            {/* BOTTOM RIGHT CARD (Session by Device / Evidence Doughnut Card) */}
+            <div className="lg:col-span-5 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 sm:p-6 shadow-sm flex flex-col justify-between transition-colors duration-300">
               
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
                   Evidence Composition Breakdown
                 </h3>
 
-                <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-600 dark:text-slate-300 font-mono">
+                <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 font-mono">
                   <span>Oct - Nov 2026</span>
                   <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                 </button>
@@ -549,38 +588,38 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
                   </svg>
 
                   <div className="absolute text-center font-mono">
-                    <span className="text-[10px] text-slate-400 dark:text-slate-500 block uppercase font-bold">Total</span>
-                    <span className="text-lg font-black text-slate-900 dark:text-white block leading-tight">123456</span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-sans">Visitors / IoU</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase font-bold">Total</span>
+                    <span className="text-xl font-black text-slate-900 dark:text-white block leading-tight">123456</span>
+                    <span className="text-[10px] text-slate-600 dark:text-slate-400 font-sans font-bold">Visitors / IoU</span>
                   </div>
                 </div>
 
                 {/* LEGEND ITEMS WITH COLOR DOTS */}
-                <div className="space-y-3 font-mono text-xs w-full">
+                <div className="space-y-2.5 font-mono text-xs sm:text-sm w-full">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300 font-medium">
+                    <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-bold">
                       <span className="w-2.5 h-2.5 rounded-full bg-blue-600" /> Spatial P95 Match
                     </span>
                     <strong className="text-slate-900 dark:text-white font-extrabold">3490</strong>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300 font-medium">
+                    <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-bold">
                       <span className="w-2.5 h-2.5 rounded-full bg-purple-600" /> Temporal Window
                     </span>
                     <strong className="text-slate-900 dark:text-white font-extrabold">9146</strong>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300 font-medium">
+                    <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-bold">
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-500" /> Hydrodynamic Plume
                     </span>
                     <strong className="text-slate-900 dark:text-white font-extrabold">7553</strong>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300 font-medium">
-                      <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600" /> AIS Kinematic
+                    <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-bold">
+                      <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-500" /> AIS Kinematic
                     </span>
                     <strong className="text-slate-900 dark:text-white font-extrabold">2906</strong>
                   </div>

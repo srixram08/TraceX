@@ -80,17 +80,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           
           {currentView === 'dashboard' ? (
             <>
-              {/* SLK Active Location Selector Pill (Positioned right next to Certified Dossier) */}
+              {/* SLK Active Location Selector Pill */}
               {activeIncident && (
                 <div className="relative">
                   <button
                     onClick={() => setIsLocationMenuOpen(!isLocationMenuOpen)}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/60 dark:hover:bg-purple-900/80 text-purple-800 dark:text-purple-200 border border-purple-200/90 dark:border-purple-800 font-medium text-xs transition-all shadow-2xs group cursor-pointer"
+                    className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/60 dark:hover:bg-purple-900/80 text-purple-900 dark:text-purple-200 border border-purple-200/90 dark:border-purple-800 font-extrabold text-xs sm:text-sm transition-all shadow-2xs group cursor-pointer"
                     title="Switch Active Location"
                   >
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="font-extrabold font-mono text-purple-900 dark:text-purple-200">{activeIncident.caseNumber}</span>
-                    <span className="text-slate-600 dark:text-slate-400 font-sans text-xs hidden sm:inline">({activeIncident.region.split(' (')[0]})</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="font-bold font-mono text-purple-900 dark:text-purple-200">{activeIncident.caseNumber}</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-sans text-xs sm:text-sm font-bold hidden sm:inline">({activeIncident.region.split(' (')[0]})</span>
                     <ChevronDown className={`w-3.5 h-3.5 text-purple-600 dark:text-purple-400 transition-transform duration-200 ${isLocationMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
 
@@ -99,9 +99,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <>
                       <div className="fixed inset-0 z-40" onClick={() => setIsLocationMenuOpen(false)} />
                       <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xl z-50 p-2 space-y-1 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
-                        <div className="px-3 py-1.5 text-[11px] font-mono font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider flex items-center justify-between border-b border-slate-100 dark:border-slate-800 mb-1">
+                        <div className="px-3 py-1.5 text-xs font-mono font-black text-slate-400 dark:text-slate-500 uppercase tracking-wider flex items-center justify-between border-b border-slate-100 dark:border-slate-800 mb-1">
                           <span>Select Target Location</span>
-                          <span className="text-[10px] text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-2 py-0.5 rounded-full font-mono font-bold">{incidents.length} LOCATIONS</span>
+                          <span className="text-xs text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-2 py-0.5 rounded-full font-mono font-bold">{incidents.length} LOCATIONS</span>
                         </div>
 
                         {incidents.map((inc) => (
@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                               setActiveIncident(inc);
                               setIsLocationMenuOpen(false);
                             }}
-                            className={`w-full text-left px-3 py-2.5 rounded-xl transition-all flex items-center justify-between ${
+                            className={`w-full text-left px-3 py-2 rounded-xl transition-all flex items-center justify-between ${
                               inc.id === activeIncident.id
                                 ? 'bg-purple-50/90 dark:bg-purple-950/80 text-purple-900 dark:text-purple-200 font-extrabold border border-purple-200/80 dark:border-purple-800 shadow-2xs'
                                 : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium'
@@ -120,20 +120,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                             <div className="flex items-center gap-2.5">
                               <span className={`w-2.5 h-2.5 rounded-full ${inc.id === activeIncident.id ? 'bg-emerald-500 ring-2 ring-emerald-200 dark:ring-emerald-900' : 'bg-slate-300 dark:bg-slate-700'}`} />
                               <div>
-                                <div className="text-xs font-mono font-bold flex items-center gap-2">
+                                <div className="text-xs sm:text-sm font-mono font-bold flex items-center gap-2">
                                   <span className="text-purple-900 dark:text-purple-300">{inc.caseNumber}</span>
-                                  <span className="text-[10px] font-sans font-normal px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                  <span className="text-xs font-sans font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                                     {inc.region.split(' (')[0]}
                                   </span>
                                 </div>
-                                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                                <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
                                   {inc.areaKm2} km² • {inc.sensor.split(' ')[0]}
                                 </div>
                               </div>
                             </div>
 
                             {inc.id === activeIncident.id && (
-                              <span className="text-[10px] font-mono font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950 px-2 py-0.5 rounded-full">
+                              <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950 px-2 py-0.5 rounded-full">
                                 ACTIVE
                               </span>
                             )}
@@ -149,9 +149,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               {onOpenBenchmark && (
                 <button
                   onClick={onOpenBenchmark}
-                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-xs font-black text-white shadow-md shadow-purple-500/20 transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-xs sm:text-sm font-bold text-white shadow-md shadow-purple-500/20 transition-all cursor-pointer"
                 >
-                  <span className="text-[10px] font-mono bg-white/20 px-1.5 py-0.5 rounded">34.5/40</span>
+                  <span className="text-xs font-mono bg-white/20 px-2 py-0.5 rounded font-bold">34.5/40</span>
                   <span className="hidden md:inline">vs SkyTruth</span>
                 </button>
               )}
@@ -159,7 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Dossier Report Export Quick Action */}
               <button
                 onClick={onOpenReport}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 transition-all border border-slate-200/80 dark:border-slate-700 cursor-pointer"
+                className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 transition-all border border-slate-200 dark:border-slate-700 cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                 <span className="hidden sm:inline">Certified Dossier</span>
@@ -171,13 +171,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 text-xs font-bold transition-all border border-slate-200 dark:border-slate-700 cursor-pointer flex items-center justify-center"
                 title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
+                {isDarkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-slate-600" />}
               </button>
 
               {/* Home / Exit Dashboard Button */}
               <button
                 onClick={() => setCurrentView('landing')}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold shadow-md shadow-purple-500/20 transition-all hover:scale-105 cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-500/20 transition-all hover:scale-105 cursor-pointer"
               >
                 <span>Exit Command Center</span>
               </button>
@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Sign Out Button */}
               <button
                 onClick={onLogout}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900/80 text-rose-700 dark:text-rose-300 text-xs font-bold border border-rose-200 dark:border-rose-800 transition-all hover:scale-105 cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900/80 text-rose-700 dark:text-rose-300 text-xs sm:text-sm font-bold border border-rose-200 dark:border-rose-800 transition-all hover:scale-105 cursor-pointer"
                 title="Sign Out"
               >
                 <LogOut className="w-3.5 h-3.5" />
