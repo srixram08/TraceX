@@ -61,35 +61,35 @@ export const RewindController: React.FC<RewindControllerProps> = ({
   const isNearReleaseWindow = Math.abs(rewindHours - incident.probableOrigin.estimatedReleaseOffsetHours) <= 0.8;
 
   return (
-    <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-md space-y-3 relative">
+    <div className="bg-white dark:bg-slate-900/90 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-3 relative transition-colors duration-300">
       
       {/* Top Header */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+          <div className="w-8 h-8 rounded-2xl bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold">
             <RotateCcw className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="text-sm font-extrabold font-display text-slate-900 flex items-center gap-2">
+            <h3 className="text-sm font-extrabold font-display text-slate-900 dark:text-white flex items-center gap-2">
               REWIND THE OCEAN
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 border border-purple-200 font-bold">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-bold">
                 SIGNATURE ENGINE
               </span>
             </h3>
-            <p className="text-[11px] font-mono text-slate-500">
+            <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
               Lagrangian Retrograde Advection • Current {incident.currentKnots} kn @ {incident.currentDirectionDeg}°
             </p>
           </div>
         </div>
 
         {/* Current Scrubbed Time Display */}
-        <div className="flex items-center gap-3 bg-purple-50 px-4 py-2 rounded-2xl border border-purple-200 font-mono text-xs">
-          <Clock className="w-4 h-4 text-purple-700" />
+        <div className="flex items-center gap-3 bg-purple-50 dark:bg-purple-950/60 px-4 py-2 rounded-2xl border border-purple-200 dark:border-purple-800 font-mono text-xs">
+          <Clock className="w-4 h-4 text-purple-700 dark:text-purple-400" />
           <div className="text-right">
-            <div className="text-xs font-bold text-slate-900">
+            <div className="text-xs font-bold text-slate-900 dark:text-white">
               {getCalculatedTime(rewindHours)}
             </div>
-            <div className="text-[10px] text-purple-700 font-semibold">
+            <div className="text-[10px] text-purple-700 dark:text-purple-300 font-semibold">
               {rewindHours === 0 ? 'T0 (Satellite Pass)' : `T-${rewindHours.toFixed(1)}h (Reverse)`}
             </div>
           </div>
@@ -98,14 +98,14 @@ export const RewindController: React.FC<RewindControllerProps> = ({
 
       {/* Rendezvous Banner when scrubbed to release window */}
       {isNearReleaseWindow && (
-        <div className="p-3 rounded-2xl bg-purple-100 border border-purple-300 flex items-center justify-between text-xs font-mono text-purple-900 shadow-sm animate-pulse">
+        <div className="p-3 rounded-2xl bg-purple-100 dark:bg-purple-950/90 border border-purple-300 dark:border-purple-800 flex items-center justify-between text-xs font-mono text-purple-900 dark:text-purple-200 shadow-sm animate-pulse">
           <div className="flex items-center gap-2">
-            <Target className="w-4 h-4 text-purple-700 shrink-0" />
+            <Target className="w-4 h-4 text-purple-700 dark:text-purple-300 shrink-0" />
             <span>
               ⚠️ <strong className="font-bold">{topVessel.name}</strong> intersected probable origin zone during window ({incident.probableOrigin.timeWindowStart} - {incident.probableOrigin.timeWindowEnd})
             </span>
           </div>
-          <span className="text-xs font-bold text-emerald-700">
+          <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
             {topVessel.score.overall}% Match
           </span>
         </div>
@@ -120,27 +120,27 @@ export const RewindController: React.FC<RewindControllerProps> = ({
           step="0.1"
           value={rewindHours}
           onChange={(e) => setRewindHours(parseFloat(e.target.value))}
-          className="w-full accent-purple-600 h-2 bg-slate-200 rounded-lg cursor-pointer transition-all"
+          className="w-full accent-purple-600 dark:accent-purple-500 h-2 bg-slate-200 dark:bg-slate-800 rounded-lg cursor-pointer transition-all"
         />
 
         {/* Timeline Marks */}
-        <div className="flex justify-between text-[11px] font-mono text-slate-500 font-medium">
-          <span className={rewindHours === 0 ? 'text-red-600 font-bold' : ''}>T0 (Spill)</span>
-          <span className={rewindHours >= 1 && rewindHours < 2 ? 'text-purple-700 font-bold' : ''}>T-1h</span>
-          <span className={rewindHours >= 2 && rewindHours < 3 ? 'text-purple-700 font-bold' : ''}>T-2h</span>
-          <span className={rewindHours >= 3 && rewindHours < 4 ? 'text-purple-700 font-bold' : ''}>T-3h</span>
-          <span className={rewindHours >= 4 && rewindHours < 5 ? 'text-purple-700 font-bold' : ''}>T-4h ⚠️</span>
-          <span className={rewindHours >= 5 && rewindHours < 6 ? 'text-purple-700 font-bold' : ''}>T-5h</span>
-          <span className={rewindHours >= 6 ? 'text-purple-700 font-bold' : ''}>T-8h</span>
+        <div className="flex justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium">
+          <span className={rewindHours === 0 ? 'text-red-600 dark:text-red-400 font-bold' : ''}>T0 (Spill)</span>
+          <span className={rewindHours >= 1 && rewindHours < 2 ? 'text-purple-700 dark:text-purple-400 font-bold' : ''}>T-1h</span>
+          <span className={rewindHours >= 2 && rewindHours < 3 ? 'text-purple-700 dark:text-purple-400 font-bold' : ''}>T-2h</span>
+          <span className={rewindHours >= 3 && rewindHours < 4 ? 'text-purple-700 dark:text-purple-400 font-bold' : ''}>T-3h</span>
+          <span className={rewindHours >= 4 && rewindHours < 5 ? 'text-purple-700 dark:text-purple-400 font-bold' : ''}>T-4h ⚠️</span>
+          <span className={rewindHours >= 5 && rewindHours < 6 ? 'text-purple-700 dark:text-purple-400 font-bold' : ''}>T-5h</span>
+          <span className={rewindHours >= 6 ? 'text-purple-700 dark:text-purple-400 font-bold' : ''}>T-8h</span>
         </div>
       </div>
 
       {/* Playback Buttons & Speed Selector */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
         <div className="flex items-center gap-2">
           <button
             onClick={() => setRewindHours(0)}
-            className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
             title="Reset to T0"
           >
             <RotateCcw className="w-4 h-4" />
@@ -149,7 +149,7 @@ export const RewindController: React.FC<RewindControllerProps> = ({
           <button
             onClick={handleStepForward}
             disabled={rewindHours <= 0}
-            className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 disabled:opacity-40 text-slate-700 transition-colors"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 text-slate-700 dark:text-slate-300 transition-colors"
             title="Step Forward in Time"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -175,7 +175,7 @@ export const RewindController: React.FC<RewindControllerProps> = ({
           <button
             onClick={handleStepBack}
             disabled={rewindHours >= maxHours}
-            className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 disabled:opacity-40 text-slate-700 transition-colors"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 text-slate-700 dark:text-slate-300 transition-colors"
             title="Step Backward in Time"
           >
             <ChevronRight className="w-4 h-4" />
@@ -183,8 +183,8 @@ export const RewindController: React.FC<RewindControllerProps> = ({
         </div>
 
         {/* Speed Multipliers */}
-        <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-2xl text-xs font-mono">
-          <span className="text-[10px] text-slate-500 px-2 font-bold">Speed:</span>
+        <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl text-xs font-mono">
+          <span className="text-[10px] text-slate-500 dark:text-slate-400 px-2 font-bold">Speed:</span>
           {[1, 2, 5].map((speed) => (
             <button
               key={speed}
@@ -192,7 +192,7 @@ export const RewindController: React.FC<RewindControllerProps> = ({
               className={`px-3 py-1 rounded-xl transition-colors font-bold ${
                 playbackSpeed === speed
                   ? 'bg-purple-600 text-white shadow-sm'
-                  : 'text-slate-600 hover:text-purple-700'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-purple-700 dark:hover:text-purple-300'
               }`}
             >
               {speed}x
@@ -200,9 +200,9 @@ export const RewindController: React.FC<RewindControllerProps> = ({
           ))}
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-600">
-          <Waves className="w-4 h-4 text-purple-600" />
-          <span>Dispersion Radius: <strong className="text-slate-900">{(incident.probableOrigin.radiusKm * (1 + rewindHours * 0.25)).toFixed(1)} km</strong></span>
+        <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+          <Waves className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+          <span>Dispersion Radius: <strong className="text-slate-900 dark:text-white">{(incident.probableOrigin.radiusKm * (1 + rewindHours * 0.25)).toFixed(1)} km</strong></span>
         </div>
       </div>
 

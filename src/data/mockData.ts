@@ -42,6 +42,185 @@ export const mockIncidents: Incident[] = [
       [20.825, 69.405],
       [20.839, 69.388]
     ],
+    // TRACEX 2.0 STRATEGIC DATA
+    hypotheses: [
+      {
+        id: 'hyp-1',
+        code: 'H1',
+        title: 'MV Neptune Voyager Illegal Bilge/Ballast Discharge',
+        targetName: 'MV Neptune Voyager (VLCC Aframax)',
+        type: 'VESSEL_DISCHARGE',
+        description: 'Vessel decelerated to 4.1 kn inside $P_{95}$ origin ellipse and conducted unrecorded oily ballast water flushing during 47 min AIS blackout.',
+        posteriorProbability: 0.89,
+        status: 'SUPPORTED',
+        supportingEvidenceCount: 6,
+        contradictoryEvidenceCount: 2,
+        physicsConstraintScore: 94
+      },
+      {
+        id: 'hyp-2',
+        code: 'H2',
+        title: 'MT Pacific Trader Tank-Washing In-Transit',
+        targetName: 'MT Pacific Trader (Chemical Tanker)',
+        type: 'IN_TRANSIT_OFFLOAD',
+        description: 'Secondary suspect vessel traversing 4.2 km south of spill centroid. Under testing against hydrodynamic drift vector.',
+        posteriorProbability: 0.28,
+        status: 'FALSIFIED',
+        falsificationReason: 'Falsified by Lagrangian drift vector physics: vessel path is 3.8 km downwind of slick origin.',
+        supportingEvidenceCount: 2,
+        contradictoryEvidenceCount: 5,
+        physicsConstraintScore: 32
+      },
+      {
+        id: 'hyp-3',
+        code: 'H3',
+        title: 'Subsea Wellhead R-4 Pipeline Seepage',
+        targetName: 'Offshore Platform Wellhead R-4',
+        type: 'SUBSEA_INFRASTRUCTURE',
+        description: 'Offshore crude extraction pipe leak hypothesis tested against bathymetry and pressure telemetry logs.',
+        posteriorProbability: 0.05,
+        status: 'FALSIFIED',
+        falsificationReason: 'Falsified by pressure sensor telemetry: Zero drop in pipeline head pressure during T-6h to T-0h.',
+        supportingEvidenceCount: 0,
+        contradictoryEvidenceCount: 6,
+        physicsConstraintScore: 12
+      },
+      {
+        id: 'hyp-4',
+        code: 'H4',
+        title: 'Natural Biogenic Algal Bloom / Wind Slick Look-Alike',
+        targetName: 'Natural Chlorophyll-a Feature',
+        type: 'NATURAL_BIOGENIC',
+        description: 'Natural biogenic film hypothesis evaluated using SAR VV/VH dielectric thresholding and MODIS sea surface temp.',
+        posteriorProbability: 0.02,
+        status: 'FALSIFIED',
+        falsificationReason: 'Falsified by SAR dielectric contrast (>14.2 dB attenuation) and Sentinel-2 MSI index matching mineral crude oil.',
+        supportingEvidenceCount: 0,
+        contradictoryEvidenceCount: 8,
+        physicsConstraintScore: 5
+      }
+    ],
+    dualLedger: {
+      supporting: [
+        {
+          id: 'sup-1',
+          category: 'Spatial',
+          metric: 'Origin Intersection',
+          value: 'Intersects P95 Origin Region (20.761°N, 69.289°E)',
+          impactWeight: 0.95,
+          detail: 'Vessel track enters within 0.8 km of reconstructed Lagrangian retrograde origin centroid.'
+        },
+        {
+          id: 'sup-2',
+          category: 'Temporal',
+          metric: 'Window Match',
+          value: '02:15 UTC ± 15m (T-4.25h)',
+          impactWeight: 0.91,
+          detail: 'Arrival at release region aligns with Sentinel-1 SAR back-calculated spill inception time.'
+        },
+        {
+          id: 'sup-3',
+          category: 'Monte Carlo',
+          metric: '500-Run Ensemble Overlap',
+          value: '342 / 500 runs (68.4% IoU)',
+          impactWeight: 0.88,
+          detail: 'Stochastic perturbation of current (±20%) and leeway (1-4%) maintains >65% spatial overlap.'
+        },
+        {
+          id: 'sup-4',
+          category: 'Centroid',
+          metric: 'Boundary Distance',
+          value: 'Δd = 2.4 km',
+          impactWeight: 0.85,
+          detail: 'Vessel trajectory aligns tightly with main slick boundary expansion vector.'
+        }
+      ],
+      contradictory: [
+        {
+          id: 'con-1',
+          category: 'Kinematics',
+          metric: 'AIS Gap / Outage',
+          value: '47-Minute Telemetry Outage',
+          impactWeight: 0.78,
+          detail: 'Kinematic engine detected physics-violating position jump during transponder gap.',
+          isFalsificationCriterion: true
+        },
+        {
+          id: 'con-2',
+          category: 'Plume Axis',
+          metric: 'Heading Deviation',
+          value: '38° Offset from Heading',
+          impactWeight: 0.65,
+          detail: 'Spill plume axis deviates 38° from vessel primary heading, accounted for by 1.42 kn cross-current.',
+          isFalsificationCriterion: false
+        },
+        {
+          id: 'con-3',
+          category: 'Draft Match',
+          metric: 'Ballast Condition',
+          value: 'Draft 14.8m (Loaded State)',
+          impactWeight: 0.58,
+          detail: 'Draft indicates vessel was fully loaded; discharge likely oily bilge flushing rather than full ballast dump.',
+          isFalsificationCriterion: false
+        }
+      ]
+    },
+    monteCarlo: {
+      totalRuns: 500,
+      successfulHits: 342,
+      ensembleOverlapPct: 68.4,
+      robustnessEnvelopeIoU: 0.76,
+      dispersionRadiusKm: 4.2,
+      centroidShiftKm: 2.4
+    },
+    forwardRisk: {
+      forecastHours: 48,
+      projectedAreaKm2: 44.8,
+      driftDirectionDeg: 68,
+      driftSpeedKnots: 1.35,
+      coastalThreatLevel: 'HIGH_ALERT',
+      impactAssets: [
+        {
+          id: 'asset-1',
+          name: 'Gulf of Kutch Marine Sanctuary (Coral & Mangrove EEZ)',
+          type: 'MARINE_PROTECTED_AREA',
+          coordinates: { lat: 21.25, lng: 70.15 },
+          distanceKm: 28.4,
+          timeToImpactHours: 14.2,
+          riskSeverity: 'CRITICAL',
+          economicValueUsd: '$45,000,000'
+        },
+        {
+          id: 'asset-2',
+          name: 'Vadinar Commercial Deepwater Fisheries',
+          type: 'FISHERY_ZONE',
+          coordinates: { lat: 21.15, lng: 69.95 },
+          distanceKm: 18.2,
+          timeToImpactHours: 9.1,
+          riskSeverity: 'HIGH',
+          economicValueUsd: '$18,500,000'
+        },
+        {
+          id: 'asset-3',
+          name: 'Sikka Coastal Desalination & Power Intake',
+          type: 'DESALINATION_PLANT',
+          coordinates: { lat: 21.32, lng: 70.30 },
+          distanceKm: 42.6,
+          timeToImpactHours: 21.3,
+          riskSeverity: 'MODERATE',
+          economicValueUsd: '$120,000,000'
+        }
+      ]
+    },
+    provenance: {
+      sarSceneHashSHA256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+      aisIngestionHashSHA256: '8f4e2b1a9c3d5e7f0b2a4c6d8e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b1c3d5e7f',
+      oceanicModelSliceHash: '1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b',
+      modelWeightsSeed: 'TRACEX-v2.0-SEED-8942-HYCOM-ERA5',
+      merkleRootHash: '9c7f5b3a1d8e6f4c2b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c',
+      generatedTimestamp: '2026-09-04T07:15:22.048Z',
+      blockchainVerificationUrl: 'https://audit.tracex.gov.in/verify/9c7f5b3a1d8e6f4c'
+    },
     vessels: [
       {
         id: 'v-001',

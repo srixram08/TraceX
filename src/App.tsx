@@ -8,6 +8,8 @@ import { LoginModal } from './components/auth/LoginModal';
 import { LoginPage } from './components/auth/LoginPage';
 import Scanner from './components/ui/Scanner';
 import GradientBlinds from './components/ui/GradientBlinds';
+import GridScan from './components/ui/GridScan';
+import Radar from './components/ui/Radar';
 import { mockIncidents } from './data/mockData';
 import { Incident, ViewMode } from './types';
 
@@ -16,6 +18,21 @@ export function App() {
   const [activeIncident, setActiveIncident] = useState<Incident>(mockIncidents[0]);
   const [currentView, setCurrentView] = useState<ViewMode>('landing');
   
+  // Dark mode state - defaults to clean standard light theme
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  React.useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prev) => !prev);
+  };
+
   // Auth state
   const [user, setUser] = useState<string | null>(null);
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
@@ -48,7 +65,7 @@ export function App() {
   const isLandingOrLogin = currentView === 'landing' || currentView === 'login';
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans selection:bg-indigo-600 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#090d16] text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-indigo-600 selection:text-white relative overflow-x-hidden transition-colors duration-300">
       
       {/* React Bits WebGL Scanner Radar Field Background (Vibrant & Rich on Landing & Login) */}
       <div className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 ${isLandingOrLogin ? 'opacity-90' : 'opacity-0'}`}>
@@ -82,24 +99,42 @@ export function App() {
         />
       </div>
 
-      {/* React Bits WebGL GradientBlinds Component Background (Calm & Low Intensity on Dashboard) */}
+      {/* React Bits WebGL Radar & GridScan Component Background on Dashboard */}
       {currentView === 'dashboard' && (
-        <div className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-25">
-          <GradientBlinds
-            gradientColors={['#f1f5f9', '#e2e8f0', '#ddd6fe', '#e0e7ff']}
-            angle={20}
-            noise={0.05}
-            blindCount={16}
-            blindMinWidth={70}
-            spotlightRadius={0.5}
-            spotlightSoftness={1.5}
-            spotlightOpacity={0.35}
-            mouseDampening={0.12}
-            distortAmount={0.3}
-            shineDirection="left"
-            mixBlendMode="soft-light"
-            lightMode={true}
+        <div className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-40 dark:opacity-60">
+          <Radar
+            speed={0.8}
+            scale={0.55}
+            ringCount={12}
+            spokeCount={12}
+            ringThickness={0.04}
+            spokeThickness={0.008}
+            sweepSpeed={0.9}
+            sweepWidth={2.2}
+            sweepLobes={1}
+            color={isDarkMode ? "#a855f7" : "#7c3aed"}
+            backgroundColor={isDarkMode ? "#090d16" : "#f8fafc"}
+            falloff={2.2}
+            brightness={1.0}
+            enableMouseInteraction={true}
+            mouseInfluence={0.12}
+            lightMode={!isDarkMode}
           />
+          <div className="absolute inset-0 opacity-30">
+            <GridScan
+              sensitivity={0.55}
+              lineThickness={1}
+              linesColor={isDarkMode ? "#3b0764" : "#94a3b8"}
+              gridScale={0.1}
+              scanColor={isDarkMode ? "#c084fc" : "#9333ea"}
+              scanOpacity={0.35}
+              enablePost={true}
+              bloomIntensity={0.5}
+              chromaticAberration={0.002}
+              noiseIntensity={0.01}
+              lightMode={!isDarkMode}
+            />
+          </div>
         </div>
       )}
 
@@ -117,6 +152,8 @@ export function App() {
             onOpenLogin={() => setCurrentView('login')}
             user={user}
             onLogout={handleLogout}
+            isDarkMode={isDarkMode}
+            onToggleDarkMode={toggleDarkMode}
           />
         )}
 
@@ -145,8 +182,11 @@ export function App() {
           ) : (
             <OperationsDashboard
               incident={activeIncident}
+              incidents={incidents}
+              setActiveIncident={setActiveIncident}
               onOpenReport={() => setIsReportOpen(true)}
               onOpenNewIncident={() => setIsNewIncidentOpen(true)}
+              isDarkMode={isDarkMode}
             />
           )}
         </main>
