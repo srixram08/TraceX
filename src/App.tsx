@@ -11,6 +11,7 @@ import Scanner from './components/ui/Scanner';
 import GradientBlinds from './components/ui/GradientBlinds';
 import GridScan from './components/ui/GridScan';
 import Radar from './components/ui/Radar';
+import Galaxy from './components/ui/Galaxy';
 import { mockIncidents } from './data/mockData';
 import { Incident, ViewMode } from './types';
 
@@ -101,42 +102,22 @@ export function App() {
         />
       </div>
 
-      {/* React Bits WebGL Radar & GridScan Component Background on Dashboard */}
+      {/* React Bits WebGL Galaxy Background on Dashboard */}
       {currentView === 'dashboard' && (
-        <div className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-40 dark:opacity-60">
-          <Radar
-            speed={0.8}
-            scale={0.55}
-            ringCount={12}
-            spokeCount={12}
-            ringThickness={0.04}
-            spokeThickness={0.008}
-            sweepSpeed={0.9}
-            sweepWidth={2.2}
-            sweepLobes={1}
-            color={isDarkMode ? "#a855f7" : "#7c3aed"}
-            backgroundColor={isDarkMode ? "#090d16" : "#f8fafc"}
-            falloff={2.2}
-            brightness={1.0}
-            enableMouseInteraction={true}
-            mouseInfluence={0.12}
-            lightMode={!isDarkMode}
+        <div className="fixed inset-0 z-0 transition-opacity duration-700 opacity-90 dark:opacity-100 pointer-events-auto">
+          <Galaxy
+            starSpeed={0.5}
+            density={1}
+            hueShift={140}
+            speed={1}
+            glowIntensity={0.35}
+            saturation={0}
+            mouseRepulsion
+            repulsionStrength={2}
+            twinkleIntensity={0.3}
+            rotationSpeed={0.1}
+            transparent
           />
-          <div className="absolute inset-0 opacity-30">
-            <GridScan
-              sensitivity={0.55}
-              lineThickness={1}
-              linesColor={isDarkMode ? "#3b0764" : "#94a3b8"}
-              gridScale={0.1}
-              scanColor={isDarkMode ? "#c084fc" : "#9333ea"}
-              scanOpacity={0.35}
-              enablePost={true}
-              bloomIntensity={0.5}
-              chromaticAberration={0.002}
-              noiseIntensity={0.01}
-              lightMode={!isDarkMode}
-            />
-          </div>
         </div>
       )}
 

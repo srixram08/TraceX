@@ -59,7 +59,7 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#090d16] text-slate-800 dark:text-slate-100 font-sans p-3 sm:p-6 transition-colors duration-300">
+    <div className="min-h-screen bg-transparent text-slate-800 dark:text-slate-100 font-sans p-3 sm:p-6 transition-colors duration-300 relative z-10">
       <div className="max-w-[1700px] mx-auto flex flex-col lg:flex-row gap-6">
         
         {/* ========================================== */}
@@ -68,19 +68,6 @@ export const OperationsDashboard: React.FC<OperationsDashboardProps> = ({
         <aside className="w-full lg:w-64 bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 p-5 shadow-sm flex flex-col justify-between shrink-0 transition-colors duration-300">
           
           <div className="space-y-6">
-            
-            {/* Top Brand / Logo */}
-            <div className="flex items-center gap-3 px-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md shadow-blue-500/25">
-                N
-              </div>
-              <div>
-                <h1 className="text-lg font-black tracking-tight text-slate-900 dark:text-white leading-none">
-                  Analytics
-                </h1>
-                <span className="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500">TraceX 2.0</span>
-              </div>
-            </div>
 
             {/* DIRECTORIES NAVIGATION */}
             <div className="space-y-1">
