@@ -29,7 +29,7 @@ export const SkyTruthBenchmarkModal: React.FC<SkyTruthBenchmarkModalProps> = ({ 
                 </span>
               </div>
               <h2 className="text-xl font-black tracking-tight text-slate-900 dark:text-white mt-1">
-                SLICKTRACE 2.0 • STRATEGIC REDESIGN BENCHMARK
+                TRACEX 2.0 • STRATEGIC REDESIGN BENCHMARK
               </h2>
             </div>
           </div>
@@ -53,7 +53,7 @@ export const SkyTruthBenchmarkModal: React.FC<SkyTruthBenchmarkModalProps> = ({ 
               <span>THE WINNING PITCH SCRIPT</span>
             </div>
             <p className="text-sm font-medium italic text-slate-200 leading-relaxed relative z-10">
-              &quot;Existing tools like SkyTruth ask: &apos;Which vessel was near the slick?&apos; But in maritime law and defense intelligence, proximity is not proof. AIS is spoofed, ocean currents are chaotic, and deterministic tracks fail under scrutiny. <strong className="text-purple-300 font-bold">SLICKTRACE 2.0 is a Forensic Maritime Digital Twin.</strong> We do not simply rank suspects. We formulate competing causal hypotheses, propagate environmental uncertainty through hundreds of Monte Carlo counterfactual simulations, aggressively expose contradictory evidence, and forecast downstream ecological impact—delivering an auditable, court-admissible forensic case package.&quot;
+              &quot;Existing tools like SkyTruth ask: &apos;Which vessel was near the slick?&apos; But in maritime law and defense intelligence, proximity is not proof. AIS is spoofed, ocean currents are chaotic, and deterministic tracks fail under scrutiny. <strong className="text-purple-300 font-bold">TRACEX 2.0 is a Forensic Maritime Digital Twin.</strong> We do not simply rank suspects. We formulate competing causal hypotheses, propagate environmental uncertainty through hundreds of Monte Carlo counterfactual simulations, aggressively expose contradictory evidence, and forecast downstream ecological impact—delivering an auditable, court-admissible forensic case package.&quot;
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export const SkyTruthBenchmarkModal: React.FC<SkyTruthBenchmarkModalProps> = ({ 
                     <td className="p-3 text-center font-mono font-black text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30">8 / 10 ✅</td>
                     <td className="p-3 text-slate-600 dark:text-slate-300">Directly addresses problem statement needs; evaluator demanded SkyTruth transparency.</td>
                     <td className="p-3 text-center font-mono font-black text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30">9.0 / 10 ✅</td>
-                    <td className="p-3 font-medium text-slate-800 dark:text-slate-200">Acknowledge SkyTruth as upstream baseline; position SLICKTRACE as downstream forensic twin.</td>
+                    <td className="p-3 font-medium text-slate-800 dark:text-slate-200">Acknowledge SkyTruth as upstream baseline; position TRACEX as downstream forensic twin.</td>
                   </tr>
 
                   <tr className="bg-purple-50/80 dark:bg-purple-950/40 font-bold">
@@ -125,11 +125,11 @@ export const SkyTruthBenchmarkModal: React.FC<SkyTruthBenchmarkModalProps> = ({ 
             </div>
           </div>
 
-          {/* SECTION 3: DIRECT BENCHMARK: SLICKTRACE 2.0 VS. SKYTRUTH / CERULEAN */}
+          {/* SECTION 3: DIRECT BENCHMARK: TRACEX 2.0 VS. SKYTRUTH / CERULEAN */}
           <div className="space-y-4">
             <h3 className="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
               <span className="w-2 h-5 bg-indigo-600 rounded-full" />
-              3. DIRECT BENCHMARK: SLICKTRACE 2.0 VS. SKYTRUTH / CERULEAN
+              3. DIRECT BENCHMARK: TRACEX 2.0 VS. SKYTRUTH / CERULEAN
             </h3>
 
             <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
@@ -138,7 +138,7 @@ export const SkyTruthBenchmarkModal: React.FC<SkyTruthBenchmarkModalProps> = ({ 
                   <tr>
                     <th className="p-3">Capability Dimension</th>
                     <th className="p-3 bg-slate-200/50 dark:bg-slate-800 text-slate-600 dark:text-slate-400">SkyTruth Cerulean (Status Quo)</th>
-                    <th className="p-3 bg-purple-600 text-white font-black">SLICKTRACE 2.0 (Forensic Twin)</th>
+                    <th className="p-3 bg-purple-600 text-white font-black">TRACEX 2.0 (Forensic Twin)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
@@ -233,7 +233,7 @@ export const SkyTruthBenchmarkModal: React.FC<SkyTruthBenchmarkModalProps> = ({ 
         {/* Footer */}
         <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/90 rounded-b-3xl flex items-center justify-between">
           <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold">
-            SLICKTRACE 2.0 • Forensic Maritime Digital Twin
+            TRACEX 2.0 • Forensic Maritime Digital Twin
           </span>
           <button
             onClick={onClose}

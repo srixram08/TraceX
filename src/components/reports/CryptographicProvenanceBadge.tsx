@@ -35,18 +35,18 @@ export const CryptographicProvenanceBadge: React.FC<CryptographicProvenanceBadge
           <button
             onClick={() => {
               const dossierData = {
-                title: "SLICKTRACE 2.0 • Court-Admissible Forensic Case Dossier",
+                title: "TRACEX 2.0 • Court-Admissible Forensic Case Dossier",
                 standard: "NTRO / Defense Chain of Custody Standard v2.0",
                 timestamp: new Date().toISOString(),
                 provenance: provenance,
-                pitchScript: "Proximity is not proof. SLICKTRACE 2.0 is a Forensic Maritime Digital Twin.",
+                pitchScript: "Proximity is not proof. TRACEX 2.0 is a Forensic Maritime Digital Twin.",
                 integrityStatus: "VERIFIED_UNTAMPERED"
               };
               const blob = new Blob([JSON.stringify(dossierData, null, 2)], { type: 'application/json' });
               const url = URL.createObjectURL(blob);
               const a = document.createElement('a');
               a.href = url;
-              a.download = `slicktrace-forensic-dossier-${provenance.merkleRootHash.slice(0, 10)}.json`;
+              a.download = `tracex-forensic-dossier-${provenance.merkleRootHash.slice(0, 10)}.json`;
               document.body.appendChild(a);
               a.click();
               document.body.removeChild(a);
