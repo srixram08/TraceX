@@ -20,16 +20,16 @@ export function App() {
   const [activeIncident, setActiveIncident] = useState<Incident>(mockIncidents[0]);
   const [currentView, setCurrentView] = useState<ViewMode>('landing');
   
-  // Dark mode state - defaults to clean standard light theme
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  // Dark mode state - defaults to deep space technology theme
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
 
   React.useEffect(() => {
-    if (isDarkMode) {
+    if (currentView === 'dashboard' || isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [isDarkMode]);
+  }, [isDarkMode, currentView]);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => !prev);
@@ -68,14 +68,14 @@ export function App() {
   const isLandingOrLogin = currentView === 'landing' || currentView === 'login';
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#090d16] text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-indigo-600 selection:text-white relative overflow-x-hidden transition-colors duration-300">
+    <div className={`min-h-screen ${currentView === 'dashboard' ? 'bg-[#02060c]' : 'bg-[#f8fafc] dark:bg-[#090d16]'} text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-indigo-600 selection:text-white relative overflow-x-hidden transition-colors duration-300`}>
       
       {/* React Bits WebGL Scanner Radar Field Background (Vibrant & Rich on Landing & Login) */}
       <div className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 ${isLandingOrLogin ? 'opacity-90' : 'opacity-0'}`}>
         <Scanner
-          color1="#6366f1"
-          color2="#ec4899"
-          color3="#06b6d4"
+          color1="#0284c7"
+          color2="#38bdf8"
+          color3="#4f46e5"
           speed={0.6}
           sweepSpeed={0.28}
           sweepWidth={1.5}

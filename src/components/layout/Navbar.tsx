@@ -46,10 +46,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-2.5 cursor-pointer group select-none"
           >
             <span className="text-2xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white">
-              Trace<span className="text-purple-600 dark:text-purple-400 font-black">X</span><span className="text-purple-600 dark:text-purple-400 text-3xl leading-none">.</span>
+              Trace<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 font-black">X</span>
             </span>
-            <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 font-bold border border-purple-200 dark:border-purple-800">
-              {currentView === 'dashboard' ? 'FORENSIC TWIN' : 'SIH26143'}
+            <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 font-bold border border-purple-300 dark:border-purple-800/80">
+              {currentView === 'dashboard' ? 'ORBITAL TWIN' : 'SPACE RECON'}
             </span>
           </div>
 
@@ -207,14 +207,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setCurrentView('dashboard')}
-                    className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold shadow-md shadow-purple-500/25 transition-all hover:scale-105 flex items-center gap-2"
+                    className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:from-purple-500 hover:via-indigo-500 hover:to-cyan-400 text-white text-xs font-bold shadow-md shadow-purple-900/30 transition-all hover:scale-105 flex items-center gap-2"
                   >
-                    <Activity className="w-4 h-4" />
+                    <Activity className="w-4 h-4 text-purple-300" />
                     <span>Enter Operations Dashboard</span>
                   </button>
                   <button
                     onClick={onLogout}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold border border-rose-200 transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 text-xs font-bold border border-rose-200 dark:border-rose-900/40 transition-all cursor-pointer"
                     title="Sign Out"
                   >
                     <LogOut className="w-3.5 h-3.5" />
@@ -224,9 +224,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               ) : (
                 <button
                   onClick={onOpenLogin}
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold shadow-md shadow-purple-500/25 transition-all hover:scale-105 flex items-center gap-2"
+                  className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 hover:from-purple-500 hover:via-indigo-500 hover:to-cyan-400 text-white text-xs font-bold shadow-md shadow-purple-900/40 transition-all hover:scale-105 flex items-center gap-2"
                 >
-                  <LogIn className="w-4 h-4" />
+                  <LogIn className="w-4 h-4 text-purple-300" />
                   <span>Login / Access Portal</span>
                 </button>
               )}
